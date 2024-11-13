@@ -2963,6 +2963,13 @@ abstract class API
 
                 foreach ($netp_iterator as $data) {
                     if (isset($data['netport_id'])) {
+                        // append contact
+                        $npo = new NetworkPort();
+                        $oppositecontactID = $npo->getContact($data['netport_id']) ;
+                        if ( !empty($npo)) {
+                            $data['netport_oppositecontactID'] = $oppositecontactID ;
+                        }
+
                        // append network name
                         $concat_expr = new QueryExpression(
                             "GROUP_CONCAT(CONCAT(" . $DB->quoteName('ipadr.id') . ", " . $DB->quoteValue(Search::SHORTSEP) . " , " . $DB->quoteName('ipadr.name') . ")
