@@ -2966,7 +2966,7 @@ abstract class API
                         // append contact
                         $npo = new NetworkPort();
                         $oppositecontactID = $npo->getContact($data['netport_id']) ;
-                        if (!empty($npo)) {
+                        if ($oppositecontactID) {
                             $data['netport_oppositecontactID'] = $oppositecontactID ;
                         }
 
