@@ -2968,6 +2968,8 @@ abstract class API
                         $oppositecontactID = $npo->getContact($data['netport_id']) ;
                         if ($oppositecontactID) {
                             $data['networkports_id_opposite'] = $oppositecontactID ;
+                        } else {
+                            $data['networkports_id_opposite'] = null;
                         }
 
                        // append network name
